@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BEEFshop &amp; GRILL — Restauracja steakhouse Warszawa | Sezonowane steki i burgery</title>
+<meta name="description" content="BEEFshop & GRILL — restauracja steakhouse w Warszawie. Sezonowane steki i burgery z wołowiny premium z własnej ekologicznej hodowli HerefordWarmia. Fort Służew." />
+<meta name="theme-color" content="#14201a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0d130f;
+    --forest:#14201a;
+    --forest-2:#1b2b22;
+    --brown:#4a2f1e;
+    --brown-2:#67432b;
+    --gold:#e5c46e;
+    --gold-soft:#d8bd85;
+    --cream:#ffffff;
+    --muted:#a7ab9e;
+    --line:#ffffff;
+    --serif:'TT Norms Pro', 'TT Norms', -apple-system, BlinkMacSystemFont, sans-serif;
+    --sans:'Roboto', system-ui, sans-serif;
+    --script:'Qwitcher Grypen', 'Brush Script MT', cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  .gold-script{font-family:var(--script);color:var(--gold);font-style:normal;font-weight:700;font-size:1.7em;display:inline-block}
+  html{scroll-behavior:smooth;background:var(--forest)}
+  body{
+    font-family:var(--sans);
+    background:var(--forest);
+    color:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+  .serif{font-family:var(--serif)}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;
+    display:inline-flex;align-items:center;gap:.7rem;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);opacity:.7}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,19,15,.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 6px 0;
+    gap: 20px;
+  }
+  .brand{font-family:var(--serif);font-size:1.4rem;font-weight:700;letter-spacing:.02em;white-space:nowrap;max-height:60px;}
+  .brand b{color:var(--gold)}
+  .nav ul{
+    display:flex;gap:22px;list-style:none;
+    font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .nav ul a{color:var(--muted);transition:color .25s}
+  .nav ul a:hover{color:var(--gold)}
+  .btn{
+    display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:600;padding:13px 26px;border:1px solid var(--gold);
+    color:var(--gold);transition:.3s;background:transparent;cursor:pointer;
+  }
+  .btn:hover{background:var(--gold);color:var(--black)}
+  .btn-solid{background:var(--gold);color:var(--black);border-color:var(--gold)}
+  .btn-solid:hover{background:var(--gold-soft);border-color:var(--gold-soft)}
+  .nav-cta{display:none;white-space:nowrap}
+  @media(min-width:1180px){.nav-cta{display:inline-block}}
+  .nav-links{display:none}
+  @media(min-width:1180px){.nav-links{display:flex}}
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(13,19,15,.55) 0%, rgba(13,19,15,.2) 40%, rgba(13,19,15,.92) 100%),
+               linear-gradient(90deg, rgba(13,19,15,.65) 0%, rgba(13,19,15,0) 55%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 760px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    margin: 12px 0 14px;
+    text-wrap: balance;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p {
+    font-size: 1rem;
+    color: var(--cream);
+    max-width: 540px;
+    margin-bottom: 20px;
+    text-wrap: pretty;
+  }
+  .-actions{display:flex;flex-wrap:wrap;gap:14px}
+
+  /* MARQUEE STRIP */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--black);overflow:hidden}
+  .strip-track{display:flex;gap:56px;white-space:nowrap;padding:18px 0;animation:scroll 28s linear infinite;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold-soft)}
+  .strip-track span{display:inline-flex;align-items:center;gap:56px}
+  .strip-track span::after{content:"◆";color:var(--brown-2);font-style:normal;font-size:.7rem}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  section{padding:100px 0}
+  .section-head{max-width:640px;margin-bottom:56px}
+  .section-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.1;margin:18px 0 16px;text-wrap:balance}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+
+  /* MENU SECTION (Background: Forest) */
+  #menu {
+    background: var(--forest);
+  }
+  /* Featured burger */
+  .featured-card{
+    max-width:520px;
+    margin:0 auto 56px;
+    background:var(--black);
+    border:2px solid var(--gold);
+    overflow:hidden;
+    position:relative;
+    transition:transform .35s;
+  }
+  .featured-card:hover{transform:translateY(-6px)}
+  .featured-badge{
+    position:absolute;top:18px;left:18px;z-index:3;
+    background:var(--gold);color:var(--black);
+    font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;padding:7px 14px;
+  }
+  .featured-card .ph{overflow:hidden;height:300px}
+  .featured-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .featured-card:hover .ph img{transform:scale(1.06)}
+  .featured-card .card-body{padding:28px;text-align:center}
+  .featured-card .card-body h3{font-family:var(--serif);font-weight:700;font-size:1.6rem;color:var(--gold)}
+  .featured-card .card-body p{color:var(--muted);font-size:.95rem;margin-top:10px}
+  .featured-card .card-body .price{font-family:var(--serif);color:var(--gold);font-size:1.4rem;font-weight:700;display:block;margin-top:14px}
+
+  /* STORY (Background: Forest-2) */
+  .story{background:var(--forest-2)}
+  .split{display:grid;gap:56px;align-items:center}
+  @media(min-width:900px){.split{grid-template-columns:1.05fr .95fr}}
+  .story-img{position:relative}
+  .story-img img{width:100%;height:520px;object-fit:cover;border:1px solid var(--line)}
+  .story-img .tag{
+    position:absolute;bottom:-1px;left:-1px;background:var(--black);
+    padding:16px 22px;border:1px solid var(--line);border-left:2px solid var(--gold);
+  }
+  .story-img .tag b{font-family:var(--serif);color:var(--gold);font-size:1.5rem;display:block}
+  .story-img .tag small{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:.68rem}
+  .story-text h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;margin:18px 0 22px;text-wrap:balance}
+  .story-text p{color:var(--cream);margin-bottom:18px}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:34px;border:1px solid var(--line)}
+  .pillars div{background:var(--forest-2);padding:22px}
+  .pillars b{font-family:var(--serif);color:var(--gold);font-size:1.05rem;display:block;margin-bottom:4px}
+  .pillars small{color:var(--muted);font-size:.85rem}
+
+  /* MENU GRID */
+  .menu-grid{display:grid;gap:28px}
+  @media(min-width:760px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1040px){.menu-grid{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--black);border:1px solid var(--line);overflow:hidden;transition:transform .35s, border-color .35s}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .card .ph{overflow:hidden;height:260px}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .card:hover .ph img{transform:scale(1.06)}
+  .card-body{padding:26px}
+  .card-body .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .card-body h3{font-family:var(--serif);font-weight:600;font-size:1.45rem}
+  .card-body .price{font-family:var(--serif);color:var(--gold);font-size:1.25rem;white-space:nowrap;font-weight:600}
+  .card-body p{color:var(--muted);font-size:.92rem;margin-top:10px}
+  .card-body .cut{display:inline-block;margin-top:16px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:5px 10px}
+
+  /* O NAS — RESTAURACJA (Background: Black) */
+  .about-resto{background:var(--black)}
+  .about-resto-inner{max-width:760px;margin:0 auto;text-align:center}
+  .about-resto-inner h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;margin:18px 0 26px;text-wrap:balance}
+  .about-resto-inner p{color:var(--cream);font-size:1.08rem;margin-bottom:18px;text-align:left}
+  .about-resto-inner .btn{margin-top:18px}
+
+  /* EXPERIENCE */
+  .exp{position:relative;padding:0}
+  .exp-grid{display:grid}
+  @media(min-width:900px){.exp-grid{grid-template-columns:1fr 1fr}}
+  .exp-photo{min-height:460px;position:relative;overflow:hidden}
+  .exp-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .exp-copy{background:var(--brown);padding:clamp(48px,6vw,90px) clamp(28px,5vw,72px);display:flex;flex-direction:column;justify-content:center}
+  .exp-copy h2{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:16px 0 20px;text-wrap:balance;color:var(--cream)}
+  .exp-copy p{color:var(--cream);margin-bottom:16px}
+  .exp-copy .eyebrow{color:var(--gold-soft)}
+  .exp-copy .eyebrow::before{background:var(--gold-soft)}
+
+  /* EVENTY (Background: Forest-2) */
+  #eventy {
+    background: var(--forest-2);
+  }
+
+  /* VISIT / LOKALIZACJA (Background: Black) */
+  .visit{background:var(--black)}
+  .visit-grid{display:grid;gap:48px;align-items:center}
+  @media(min-width:900px){.visit-grid{grid-template-columns:1fr 1fr}}
+  .visit img{width:100%;height:520px;object-fit:cover;border:1px solid var(--line)}
+  .info{border-top:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:20px}
+  .info:last-of-type{border-bottom:1px solid var(--line)}
+  .info span{color:var(--muted);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+  .info b{font-family:var(--serif);font-weight:600;font-size:1.15rem;text-align:right}
+  .visit .cta-box{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+
+  /* MAP */
+  .map-frame{width:100%;height:520px;border:1px solid var(--line);filter:grayscale(.3) brightness(.85);transition:filter .4s}
+  .map-frame:hover{filter:grayscale(0) brightness(1)}
+
+  /* FOOTER */
+  footer{background:var(--forest);border-top:1px solid var(--line);padding:64px 0 40px}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:34px;align-items:flex-start}
+  .foot .brand{font-size:1.6rem}
+  .foot p{color:var(--muted);max-width:340px;margin-top:14px;font-size:.92rem}
+  .foot-links{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-col h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .foot-col a,.foot-col p{display:block;color:var(--muted);font-size:.92rem;margin-bottom:9px;transition:color .25s}
+  .foot-col a:hover{color:var(--cream)}
+  .copyright{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;color:var(--muted);font-size:.8rem}
+  .copyright b{color:var(--gold)}
+
+  /* CENTER MENU BTN */
+  .menu-cta-center{text-align:center;margin-top:48px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><img src="img/logo3.png" alt="Logo restauracji BEEFshop & GRILL" style="max-height: 60px;"/></div>    
+    <nav class="nav-links"><ul>
+      <li><a href="#start">Start</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#hodowla">Hodowla</a></li>
+      <li><a href="#o-nas">O nas</a></li>
+      <li><a href="#eventy">Eventy</a></li>
+      <li><a href="#lokal">Kontakt</a></li>
+    </ul></nav>
+    <a href="tel:+48000000000" class="btn btn-solid nav-cta">Zadzwoń teraz</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="start">
+  <img src="img/HERO.png" alt="Wnętrze restauracji BEEFshop & GRILL" />
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">BEEFSHOP & Grill · Meat. Done Right</span>
+      <h1>Restauracja steakhouse <span class="gold-script">Warszawa</span></h1>
+      <p>Spróbuj steków i&nbsp;burgerów z&nbsp;jedynej w&nbsp;swoim rodzaju sezonowanej wołowiny Hereford.</p>
+      <div class="hero-actions">
+        <a href="tel:+48000000000" class="btn btn-solid">Zadzwoń teraz</a>
+        <a href="#menu" class="btn">Zobacz menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Menu</span>
+      <h2>Co u&nbsp;nas <span class="gold-script">zjesz</span>?</h2>
+    </div>
+
+    <!-- Burger miesiąca — wyróżniony -->
+    <article class="featured-card">
+      <div class="featured-badge">★ Burger miesiąca</div>
+      <div class="ph"><img src="img/burgermiesiaca.jpg" alt="Burger miesiąca BEEFshop & GRILL" /></div>
+      <div class="card-body">
+        <h3>Burger miesiąca</h3>
+        <p>200 g wołowiny Hereford, ser Taleggio, sos kurkowo-śmietanowy, remuladę z czerwonej cebuli, rukolę i ogórka – wszystko zamknięte w puszystej bułce brioche.</p>
+        <span class="price">51 zł</span>
+      </div>
+    </article>
+
+    <!-- 6 pozycji menu -->
+    <div class="menu-grid">
+
+      <article class="card">
+        <div class="ph"><img src="img/RIB EYE.jpg" alt="Stek Ribeye" /></div>
+        <div class="card-body">
+          <div class="row"><h3>Stek Ribeye</h3><span class="price">54zł / 100g</span></div>
+          <p>Soczysty stek z charakterystycznym “okiem tłuszczu"</p>
+          <span class="cut">Stek</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="ph"><img src="img/newyork.jpg" alt="Stek New York Strip" /></div>
+        <div class="card-body">
+          <div class="row"><h3>New York Strip</h3><span class="price">45zł / 100g</span></div>
+          <p>Stek z rostbefu, bez kości, bardziej zwarty, intensywny w smaku</p>
+          <span class="cut">Stek</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="ph"><img src="img/ZESTAW.jpg" alt="Stek z polędwicy - zestaw" /></div>
+        <div class="card-body">
+          <div class="row"><h3>Stek z polędwicy - zestaw</h3><span class="price">139 zł</span></div>
+          <p>Polędwica 200g, frytki, mix sałat </p>
+          <span class="cut">Danie główne</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="ph"><img src="img/cheeseandbacon.jpg" alt="Burger Cheese & Bacon" /></div>
+        <div class="card-body">
+          <div class="row"><h3>Burger Cheese & Bacon</h3><span class="price">49zł</span></div>
+          <p>Cheese & Bacon - 200 g wołowiny Hereford, chrupiący boczek, ser cheddar, sałata lodowa, pikle i sos BBQ z czarnym bzem w maślanej bułce brioche </p>
+          <span class="cut">Burger</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="ph"><img src="img/Cheese.jpg" alt="Cheese Burger" /></div>
+        <div class="card-body">
+          <div class="row"><h3>Cheese Burger</h3><span class="price">43 zł</span></div>
+          <p>200 g HerefordBeef, ser cheddar, sos koktajlowy, pickle, bułka brioche</p>
+          <span class="cut">Burger</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="ph"><img src="img/Tatar.jpg" alt="Tatar polski" /></div>
+        <div class="card-body">
+          <div class="row"><h3>Tatar polski</h3><span class="price">52 zł</span></div>
+          <p>Hereford Beef 150g, marynowane prawdziwki, ogórek kiszony, szalotka, żółtko z jaja przepiórczego, pieczywo i masło</p>
+          <span class="cut">Tatar</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="menu-cta-center">
+      <a href="#" class="btn btn-solid">Zobacz pełne menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- HODOWLA -->
+<section class="story" id="hodowla">
+  <div class="wrap split">
+    <div class="story-img">
+      <img src="img/HEREFORD.png" alt="Plastry steku medium-rare w sosie z czerwonego wina z ziemniakami hasselback" />
+      <div class="tag"><b>100%</b><small>Polska hodowla</small></div>
+    </div>
+    <div class="story-text">
+      <span class="eyebrow">Wołowina Hereford</span>
+      <h2>Ekologiczna Hereford prosto <span class="gold-script">z&nbsp;Warmii</span></h2>
+      <p>HerefordWarmia to nasza własna hodowla położona w&nbsp;ekologicznym, spokojnym zakątku Warmii. Zwierzęta rosną w&nbsp;naturalnym rytmie, bez pośpiechu — co czuć w&nbsp;każdym kęsie.</p>
+      <p>Dbamy o&nbsp;każdy etap: wypas, ubój, sezonowanie i&nbsp;przygotowanie. Dzięki pełnej kontroli jakości wiemy dokładnie, co trafia na Twój talerz.</p>
+      <div class="pillars">
+        <div><b>Farma</b><small>Rasa Hereford, chów ekologiczny</small></div>
+        <div><b>Sezonowanie</b><small>Dojrzewanie na sucho i mokro</small></div>
+        <div><b>Grill</b><small>Autorskie steki i burgery</small></div>
+        <div><b>Sklep</b><small>Sprzedaż detaliczna online</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O NAS — RESTAURACJA -->
+<section class="about-resto" id="o-nas">
+  <div class="wrap">
+    <div class="about-resto-inner">
+      <span class="eyebrow">O nas</span>
+      <h2>Stekownia na&nbsp;warszawskim <span class="gold-script">Forcie Służew</span></h2>
+      <p>Trudno dziś o&nbsp;dobrego steka ze sprawdzonego źródła, bo w&nbsp;większości miejsc brak informacji o&nbsp;hodowli. W&nbsp;naszej stekowni na warszawskim Forcie Służew serwujemy sezonowane steki i&nbsp;burgery z&nbsp;wołowiny pochodzącej z&nbsp;naszej własnej, ekologicznej farmy HerefordWarmia.</p>
+      <p>Kontrolujemy cały proces — od paszy aż po Twój talerz — i&nbsp;dobieramy do dań odpowiednie wina. Na miejscu zjesz wyśmienity posiłek, a&nbsp;ulubione mięso możesz też zamówić dla siebie przez <a href="https://BEEFshop.pl" style="color:var(--gold);text-decoration:underline">BEEFshop.pl</a>.</p>
+      <a href="tel:+48000000000" class="btn btn-solid">Zadzwoń teraz</a>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTY -->
+<section id="eventy">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="eyebrow">Wydarzenia firmowe</span>
+      <h2 class="serif" style="font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;margin:18px 0 26px;text-wrap:balance"><span class="gold-script">Eventy</span> dla firm i&nbsp;grup</h2>
+      <p style="color:var(--cream);margin-bottom:18px">Organizujemy imprezy firmowe, kolacje integracyjne i spotkania biznesowe w kameralnej atmosferze naszego lokalu. Dopasowujemy menu degustacyjne do wielkości i charakteru wydarzenia.</p>
+      <div class="cta-box">
+        <a href="mailto:kontakt@beefshop.pl" class="btn btn-solid">Zapytaj o ofertę</a>
+        <a href="tel:+48000000000" class="btn">Zadzwoń</a>
+      </div>
+    </div>
+    <div>
+      <img src="img/firmy.jpg" alt="Wnętrze lokalu przygotowane na wydarzenie firmowe" />
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT / LOKALIZACJA -->
+<section class="visit" id="lokal">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="eyebrow">Odwiedź nas</span>
+      <h2 class="serif" style="font-weight:400;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;margin:18px 0 26px;text-wrap:balance">Znajdziesz nas na&nbsp;<span class="gold-script">Forcie Służew</span></h2>
+      <div class="info"><span>Adres</span><b>Fort Służew 1B/LOKAL nr 16<br/>02-787 Warszawa</b></div>
+      <div class="info"><span>Godziny</span><b>Wt–Nd · 13:00–22:00<br/>Poniedziałek nieczynne</b></div>
+      <div class="info"><span>Rezerwacje</span><b>+48 000 000 000</b></div>
+      <div class="cta-box">
+        <a href="tel:+48000000000" class="btn btn-solid">Zadzwoń teraz</a>
+        <a href="https://maps.app.goo.gl/YourLinkHere" target="_blank" rel="noopener" class="btn">Nawiguj</a>
+      </div>
+    </div>
+    <div>
+      <iframe
+        class="map-frame"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.5!2d21.0!3d52.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zFort+S%C5%82u%C5%BCew+1B!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl"
+        width="100%" height="520" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa — BEEFshop & GRILL, Fort Służew 1B, Warszawa">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand"><img src="img/logo3.png" alt="Logo restauracji BEEFshop & GRILL" style="max-height: 60px;"/></div>    
+        <p>Sezonowane steki i burgery z wołowiny premium z własnej hodowli HerefordWarmia. Od farmy po talerz.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Menu</h4>
+          <a href="#menu">Karta</a>
+          <a href="#hodowla">Hodowla</a>
+          <a href="#o-nas">O nas</a>
+          <a href="#eventy">Eventy</a>
+        </div>
+        <div class="foot-col">
+          <h4>Sklep</h4>
+          <a href="https://BEEFshop.pl">BEEFshop.pl</a>
+          <p>Sprzedaż detaliczna</p>
+        </div>
+        <div class="foot-col">
+          <h4>Kontakt</h4>
+          <p>Fort Służew 1B/LOKAL nr 16</p>
+          <p>02-787 Warszawa</p>
+          <p>+48 000 000 000</p>
+          <a href="mailto:kontakt@beefshop.pl">kontakt@beefshop.pl</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2025 BEEFshop &amp; GRILL · Wszelkie prawa zastrzeżone</span>
+      <span>Hodowla <b>HerefordWarmia</b></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
